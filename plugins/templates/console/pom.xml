@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.robovmx</groupId>
     <artifactId>robovm-templates-parent</artifactId>
-    <version>10.2.2.2-SNAPSHOT</version>
+    <version>10.2.2.3-SNAPSHOT</version>
   </parent>
 
   <artifactId>robovm-templates-console</artifactId>

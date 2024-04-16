@@ -144,6 +144,9 @@ public class AppLauncher {
             if (udids.length == 1 && (deviceUdid == null || deviceUdid.equals(udids[0]))) {
                 // single device and it's a match
                 return new IDevice(udids[0]);
+            } else if (udids.length > 1 && deviceUdid != null && Arrays.asList(udids).contains(deviceUdid)) {
+                // multiple devices connected but specified is there
+                return new IDevice(deviceUdid);
             }
 
             String message;
@@ -619,7 +622,8 @@ public class AppLauncher {
             NSDictionary result = retrying.perform((mimClient) -> {
                 return mimClient.lookupImage(null);
             });
-            if (result.objectForKey("ImageSignature") != null) {
+            NSArray imageSignature = (NSArray) result.objectForKey("ImageSignature");
+            if (imageSignature != null && imageSignature.count() > 0) {
                 // already mounted
                 log("Developer disk image is already mounted.");
                 return null;

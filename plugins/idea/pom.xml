@@ -4,13 +4,13 @@
     <groupId>com.robovmx</groupId>
     <artifactId>org.robovm.idea</artifactId>
     <name>RoboVM plugin for Intellij IDEA</name>
-    <version>10.2.2.2-SNAPSHOT</version>
+    <version>10.2.2.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <ij.plugin>true</ij.plugin>
         <ij.pluginDescriptor>src/main/resources/META-INF/plugin.xml</ij.pluginDescriptor>
-        <robovm.version>10.2.2.2-SNAPSHOT</robovm.version>
+        <robovm.version>10.2.2.3-SNAPSHOT</robovm.version>
     </properties>
 
     <scm>

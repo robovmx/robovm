@@ -1,12 +1,12 @@
-<idea-plugin url="https://github.com/robovm/robovm-idea">
+<idea-plugin url="https://github.com/MobiVM/robovm">
     <id>com.mobidevelop.robovm.intellij</id>  <!-- RoboVMx note: keep original ID to have single plugin installed   -->
     <version>${project.version}</version>
-    <vendor email="robovm@mobidevelop.com" url="https://github.com/MobiVM/robovm">MobiVM</vendor>
+    <vendor email="tom@asidik.com" url="https://mobivm.github.io">MobiVM</vendor>
 
     <depends optional="true" config-file="com.mobidevelop.robovm.intellij-maven.xml">org.jetbrains.idea.maven</depends>
     <depends>org.jetbrains.plugins.gradle</depends>
     <depends>com.intellij.modules.java</depends>
-    <idea-version since-build="193.1"/>
+    <idea-version since-build="223"/>
 
     <name>MobiVM</name>
     <description>
@@ -18,14 +18,10 @@
     </description>
     <change-notes>
         <![CDATA[
-            <b>2.3.17</b>
-            <li> Debugger improvements, thread statuses </li>
-            <li> IDEA plugin update </li>
-            <li> Memory optimizations </li>
-            <li> Fix debugger crashes </li>
-            <li> iOS 15.4 binding updates </li>
-            <li> Sideloading app fixes </li>
-            <li> m1 arm simulator fixes </li>
+            <b>RoboVMx: 10.2.2.3</b>
+            <li> TBD </li>
+            <li> TBD </li>
+            <li> TBD </li>
         ]]>
     </change-notes>
 
@@ -44,6 +40,19 @@
         <!--<applicationConfigurable implementation="org.robovm.idea.config.RoboVmGlobalConfig"></applicationConfigurable>-->
         <toolWindow id="RoboVMx" anchor="bottom" icon="org.robovm.idea.RoboVmIcons.ROBOVM_SMALL" secondary="true"
                     factoryClass="org.robovm.idea.components.RoboVmToolWindowFactory"/>
+
+        <!--group.names.language.level.specific.issues.and.migration.aids-->
+        <localInspection language="JAVA"
+                         shortName="ClassWithProtocolShouldExtendNSObject"
+                         bundle="robovm.RvmInspectionBundle"
+                         key="robovm.inspection.objcprotocol.shouldbe.in.nsobject"
+                         groupBundle="robovm.RvmInspectionBundle"
+                         groupKey="robovm.inspection.group"
+                         enabledByDefault="true"
+                         level="WARNING"
+                         implementationClass="org.robovm.idea.inspection.ClassWithProtocolShouldExtendNSObject"
+                         cleanupTool="true"/>
+
     </extensions>
 
     <application-components>
@@ -65,7 +74,7 @@
     </module-components>
 
     <actions>
-        <group id="org.robovm.idea.Menu" text="RoboVMx" description="RoboVM menu">
+        <group id="org.robovm.idea.Menu" text="RoboVMx" description="RoboVM menu" popup="true">
             <add-to-group group-id="MainMenu" anchor="after" relative-to-action="ToolsMenu"/>
 
             <action id="org.robovm.idea.create-ipa" class="org.robovm.idea.actions.CreateIpaAction" text="Create IPA"
